@@ -1,6 +1,9 @@
 from exercise1 import Vector
 from exercise2 import Point2D
 
+def is_in_interval(x: float, a: float, b: float) -> bool:
+    return a <= x <= b
+
 
 class Rectangle:
     def __init__(self, lower_left: Point2D, dx: float, dy: float) -> None:
@@ -31,8 +34,7 @@ class Rectangle:
         #         and reuse that here.
         ll_px = point.x - self._lower_left.x
         ll_py = point.y - self._lower_left.y
-        return ll_px >= 0-tolerance and ll_px <= self._dx+tolerance \
-            and ll_py >= 0-tolerance and ll_py <= self._dy+tolerance
+        return is_in_interval(ll_px, 0-tolerance, self._dx+tolerance) and is_in_interval(ll_py, 0-tolerance, self._dy+tolerance)
 
     def _is_idx_on_upper_edge(self, i: int) -> bool:
         return i in [2, 3]
