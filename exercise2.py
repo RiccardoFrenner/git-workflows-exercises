@@ -13,6 +13,11 @@ class Point2D:
     @property
     def y(self) -> float:
         return self._coordinates[1]
+    
+    def __isub__(self, other) -> "Point2D":
+        self._coordinates[0] -= other[0]
+        self._coordinates[1] -= other[1]
+        return self 
 
     def __iadd__(self, other) -> "Point2D":
         self._coordinates[0] += other[0]
