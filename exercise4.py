@@ -1,3 +1,5 @@
+"""Docstring"""
+
 from typing import Tuple, List, Callable
 from math import sin, cos
 from matplotlib.pyplot import pcolormesh, show, close
